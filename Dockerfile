@@ -28,6 +28,9 @@ RUN crontab /etc/cron.d/simple-cron
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 
+# Expose port for GCP integration https://cloud.google.com/run/docs/reference/container-contract#port
+EXPOSE 8080
+
 # Run the command on container startup
 CMD ["cron", "-f"]
 
